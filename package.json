@@ -1,0 +1,17 @@
+{
+  "name": "fullstack-ts-template",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest"
+  },
+  "packageManager": "pnpm@10.1.0"
+}
