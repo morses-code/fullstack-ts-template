@@ -20,6 +20,9 @@ importers:
 
   apps/api:
     dependencies:
+      contracts:
+        specifier: workspace:*
+        version: link:../../packages/contracts
       fastify:
         specifier: ^5.12.3
         version: 5.12.3
@@ -42,6 +45,9 @@ importers:
 
   apps/web:
     dependencies:
+      contracts:
+        specifier: workspace:*
+        version: link:../../packages/contracts
       react:
         specifier: ^19.2.8
         version: 19.2.8

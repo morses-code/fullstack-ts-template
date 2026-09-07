@@ -2,6 +2,8 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "dev": {
+      "dependsOn": ["^build"],
+      "passThroughEnv": ["HOST", "PORT", "API_PROXY_TARGET"],
       "cache": false,
       "persistent": true
     },
@@ -11,16 +13,17 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
+      "outputs": []
     },
     "lint": {},
     "web#test": {
+      "dependsOn": ["^build"],
       "cache": false,
       "outputs": ["playwright-report/**", "test-results/**"],
       "passThroughEnv": ["CI"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "dependsOn": ["^build", "^typecheck"]
     }
   }
 }

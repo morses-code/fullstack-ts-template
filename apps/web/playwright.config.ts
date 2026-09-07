@@ -12,10 +12,20 @@ export default defineConfig({
   reporter: [['list'], ['html', { open: 'never' }]],
   use: { baseURL, trace: 'on-first-retry', screenshot: 'only-on-failure' },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
-  webServer: {
-    command: 'pnpm exec vite --host 127.0.0.1 --port 4173 --strictPort',
-    url: baseURL,
-    reuseExistingServer: !isCI,
-    timeout: 120_000,
-  },
+  webServer: [
+    {
+      command: 'pnpm --filter api... build && pnpm --filter api start',
+      env: { HOST: '127.0.0.1', PORT: '3002' },
+      url: 'http://127.0.0.1:3002/api/health',
+      reuseExistingServer: !isCI,
+      timeout: 120_000,
+    },
+    {
+      command: 'pnpm exec vite --host 127.0.0.1 --port 4173 --strictPort',
+      env: { API_PROXY_TARGET: 'http://127.0.0.1:3002' },
+      url: baseURL,
+      reuseExistingServer: !isCI,
+      timeout: 120_000,
+    },
+  ],
 })

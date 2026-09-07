@@ -2,7 +2,21 @@
   "name": "contracts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ApiGreeting } from './ApiGreeting'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -17,6 +18,7 @@ function App() {
         </div>
         <div>
           <h1>Get started</h1>
+          <ApiGreeting />
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
