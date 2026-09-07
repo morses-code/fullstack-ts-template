@@ -5,13 +5,24 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "test": "turbo test",
-    "lint": "turbo lint",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test:e2e": "pnpm --filter web test",
+    "test:e2e:ui": "pnpm --filter web exec playwright test --ui",
+    "test:e2e:report": "pnpm --filter web exec playwright show-report",
     "typecheck": "turbo typecheck",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.12",
     "turbo": "latest",
     "typescript": "latest"
   },
-  "packageManager": "pnpm@10.1.0"
+  "packageManager": "pnpm@10.1.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
 }

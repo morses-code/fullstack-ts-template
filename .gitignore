@@ -7,6 +7,9 @@ dist/
 build/
 .turbo/
 coverage/
+playwright-report/
+test-results/
+playwright/.cache/
 *.tsbuildinfo
 
 # Vite
